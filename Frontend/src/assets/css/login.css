@@ -1,0 +1,120 @@
+/* login.css */
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 65px);
+  background-color: #eaf3fc;
+  overflow: hidden; /* Prevents scroll */
+  padding: 0 20px;   /* horizontal padding only */
+  box-sizing: border-box;
+}
+
+.dark-mode {
+  background-color: #273043;
+}
+
+.login-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  animation: fadeSlide 0.4s ease;
+}
+
+.dark-mode .login-box {
+  background-color: #32445a;
+  color: #f1f1f1;
+}
+
+.login-title {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #007bff;
+}
+
+.login-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.login-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #333;
+}
+
+.dark-mode .login-group label {
+  color: #ddd;
+}
+
+.login-group input {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.login-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.dark-mode .login-group input {
+  background-color: #40566c;
+  border: 1px solid #5e738a;
+  color: #f4f4f4;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 0.7rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #0056b3;
+}
+
+.login-footer {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.login-footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
