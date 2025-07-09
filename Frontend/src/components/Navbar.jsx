@@ -26,7 +26,7 @@ function Navbar({ darkMode, toggleDarkMode }) {
           <Link className={  ` me-2 btn ${darkMode ? "btn-outline-light" : "btn-outline-dark"}`} to="/register">
             Sign In
           </Link>
-          <Link className={`btn ${darkMode ? "btn-outline-light" : "btn-outline-dark"}`} to="/login">
+          <Link className={`btn ${darkMode ? "btn-outline-light" : "btn-outline-dark"}`} to="/">
             Log in
           </Link>
         </div>
