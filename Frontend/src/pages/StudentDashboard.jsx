@@ -4,6 +4,8 @@ import { ThemeContext } from "../context/themeContext";
 
 function StudentDashboard() {
   const { darkMode } = useContext(ThemeContext);
+  const userName = localStorage.getItem("userName");
+  console.log("User Name:", userName);
 
   return (
     <div className={`dashboard-page ${darkMode ? "dark-mode" : ""}`}>
@@ -12,7 +14,7 @@ function StudentDashboard() {
           <i className="fas fa-user-graduate"></i> Student Dashboard
         </h2>
         <div className="dashboard-content">
-          <p>Welcome, Student! 📚</p>
+          <p>Welcome, {userName}! 📚</p>
           <ul>
             <li><i className="fas fa-book"></i> My Courses</li>
             <li><i className="fas fa-file-alt"></i> Assignments</li>

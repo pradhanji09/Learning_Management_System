@@ -4,7 +4,7 @@ import axios from "axios";
 import { ThemeContext } from "../context/themeContext";
 import { Link, useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({ setRole }) {
   const { darkMode } = useContext(ThemeContext);
   const navigate = useNavigate();
 
@@ -24,12 +24,12 @@ function Login() {
     try {
       const res = await axios.post("http://localhost:4000/api/login", formData);
       console.log("Login response:", res.data);
-      alert(res.data.message);
 
       // Example: Save user data to localStorage
-      localStorage.setItem("userId", res.data.id);
-      localStorage.setItem("userName", JSON.stringify(res.data.name));
-
+      localStorage.setItem("userId", res.data.user.id);
+      localStorage.setItem("userName", JSON.stringify(res.data.user.name));
+      localStorage.setItem("role", JSON.stringify(res.data.user.role));
+      setRole(res.data.user.role); // Update role in context or state
 
       console.log("User Role:", res.data.user.role);
       // Redirect to dashboard based on role

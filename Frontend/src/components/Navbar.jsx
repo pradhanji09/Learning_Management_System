@@ -1,15 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "../assets/css/navabar.css"; // Assuming you have a CSS file for Navbar styles
+import { Link, useNavigate } from "react-router-dom";
+import "../assets/css/navabar.css"; // corrected filename from 'navabar.css'
 
-function Navbar({ darkMode, toggleDarkMode }) {
+function Navbar({ darkMode, toggleDarkMode, role, setRole }) {
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    localStorage.clear();
+    setRole("");
+    navigate("/");
+  };
+
   return (
-    <nav className={`navbar navbar-expand-lg shadow-sm px-4 ${darkMode ? "navbar-dark custom-dark" : "navbar-light bg-light"}`}>
-      <div className="container-fluid">
-        <Link className="navbar-brand fw-bold fs-4" to="/">Padhai</Link>
+    <nav
+      className={`navbar navbar-expand-lg shadow-sm px-4 ${
+        darkMode ? "navbar-dark custom-dark" : "navbar-light bg-light"
+      }`}
+    >
+      <div className="container-fluid justify-content-between">
+        {/* Brand */}
+        <Link className="navbar-brand fw-bold fs-4 text-primary" to="/">
+          Padhai
+        </Link>
 
-        <div className="d-flex align-items-center">
-          <div className="theme-toggle me-3">
+        {/* Right Controls */}
+        <div className="d-flex align-items-center gap-3">
+
+          {/* Dark Mode Toggle */}
+          <div className="theme-toggle me-2">
             <input
               type="checkbox"
               id="darkModeToggle"
@@ -23,12 +41,66 @@ function Navbar({ darkMode, toggleDarkMode }) {
             </label>
           </div>
 
-          <Link className={  ` me-2 btn ${darkMode ? "btn-outline-light" : "btn-outline-dark"}`} to="/register">
-            Sign In
-          </Link>
-          <Link className={`btn ${darkMode ? "btn-outline-light" : "btn-outline-dark"}`} to="/">
-            Log in
-          </Link>
+          {/* Auth Buttons */}
+          {!role && (
+            <>
+              <Link
+                className={`btn btn-sm ${
+                  darkMode ? "btn-outline-light" : "btn-outline-dark"
+                }`}
+                to="/register"
+              >
+                Sign In
+              </Link>
+              <Link
+                className={`btn btn-sm ${
+                  darkMode ? "btn-outline-light" : "btn-outline-dark"
+                }`}
+                to="/"
+              >
+                Login
+              </Link>
+            </>
+          )}
+
+          {/* Role-specific Links */}
+          {role === "admin" && (
+            <>
+              <Link
+                to="/admin-dashboard"
+                className="btn btn-sm btn-primary"
+              >
+                Admin Dashboard
+              </Link>
+              <button
+                className={`btn btn-sm ${
+                  darkMode ? "btn-outline-light" : "btn-outline-dark"
+                }`}
+                onClick={handleLogOut}
+              >
+                Log out
+              </button>
+            </>
+          )}
+
+          {role === "student" && (
+            <>
+              <Link
+                to="/student-dashboard"
+                className="btn btn-sm btn-success"
+              >
+                Student Dashboard
+              </Link>
+              <button
+                className={`btn btn-sm ${
+                  darkMode ? "btn-outline-light" : "btn-outline-dark"
+                }`}
+                onClick={handleLogOut}
+              >
+                Log out
+              </button>
+            </>
+          )}
         </div>
       </div>
     </nav>

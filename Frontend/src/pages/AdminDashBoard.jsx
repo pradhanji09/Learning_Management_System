@@ -14,10 +14,18 @@ function AdminDashboard() {
         <div className="dashboard-content">
           <p>Welcome, Admin! 🎉</p>
           <ul>
-            <li><i className="fas fa-users-cog"></i> Manage Users</li>
-            <li><i className="fas fa-chart-bar"></i> View Reports</li>
-            <li><i className="fas fa-cogs"></i> System Settings</li>
-            <li><i className="fas fa-sign-out-alt"></i> Logout</li>
+            <li>
+              <i className="fas fa-users-cog"></i> Manage Users
+            </li>
+            <li>
+              <i className="fas fa-chart-bar"></i> View Reports
+            </li>
+            <li>
+              <i className="fas fa-cogs"></i> System Settings
+            </li>
+            <li>
+              <i className="fas fa-sign-out-alt"></i> Logout
+            </li>
           </ul>
         </div>
       </div>
