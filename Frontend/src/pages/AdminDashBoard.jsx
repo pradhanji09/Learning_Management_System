@@ -1,10 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "../assets/css/dashboard.css";
 import { ThemeContext } from "../context/themeContext";
+import { useNavigate } from "react-router-dom";
 
-function AdminDashboard() {
+function AdminDashboard({ role }) {
   const { darkMode } = useContext(ThemeContext);
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    if (!role || role !== "admin") {
+      alert("Please try to login first");
+      navigate("/");
+    }
+  }, [role, navigate]);
   return (
     <div className={`dashboard-page ${darkMode ? "dark-mode" : ""}`}>
       <div className="dashboard-card">

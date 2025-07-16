@@ -13,9 +13,6 @@ function AppContent() {
   const { darkMode, toggleDarkMode } = useContext(ThemeContext);
   const [role, setRole] = useState(localStorage.getItem("role"));
 
-
-
-
   return (
     <Router>
       <Navbar
@@ -27,8 +24,14 @@ function AppContent() {
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/" element={<Login setRole={setRole} />} />
-        <Route path="/admin-dashboard" element={<AdminDashboard />} />
-        <Route path="/student-dashboard" element={<StudentDashboard />} />
+        <Route
+          path="/admin-dashboard"
+          element={<AdminDashboard role={role} />}
+        />
+        <Route
+          path="/student-dashboard"
+          element={<StudentDashboard role={role} />}
+        />
       </Routes>
       <Footer />
     </Router>
