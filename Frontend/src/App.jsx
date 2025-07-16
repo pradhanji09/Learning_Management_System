@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import AdminDashboard from "./pages/AdminDashBoard";
 import StudentDashboard from "./pages/StudentDashboard";
 import Footer from "./components/Footer";
+import AddCategory from "./pages/AddCategory";
 
 function AppContent() {
   // UseContext to access theme context
@@ -32,6 +33,7 @@ function AppContent() {
           path="/student-dashboard"
           element={<StudentDashboard role={role} />}
         />
+        <Route path="/add-category" element={<AddCategory />} />
       </Routes>
       <Footer />
     </Router>
