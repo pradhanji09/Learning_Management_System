@@ -33,7 +33,7 @@ function AppContent() {
           path="/student-dashboard"
           element={<StudentDashboard role={role} />}
         />
-        <Route path="/add-category" element={<AddCategory />} />
+        <Route path="/categories" element={<AddCategory role={role} />} />
       </Routes>
       <Footer />
     </Router>

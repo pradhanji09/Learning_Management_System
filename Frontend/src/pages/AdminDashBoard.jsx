@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import "../assets/css/dashboard.css";
 import { ThemeContext } from "../context/themeContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function AdminDashboard({ role }) {
   const { darkMode } = useContext(ThemeContext);
@@ -23,7 +23,7 @@ function AdminDashboard({ role }) {
           <p>Welcome, Admin! 🎉</p>
           <ul>
             <li>
-              <i className="fas fa-users-cog"></i> Manage Users
+              <Link to="/categories"><i className="fas fa-users-cog"></i> Manage Categories</Link> 
             </li>
             <li>
               <i className="fas fa-chart-bar"></i> View Reports
